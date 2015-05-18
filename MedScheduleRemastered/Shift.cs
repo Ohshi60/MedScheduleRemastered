@@ -18,7 +18,7 @@ namespace MedScheduleRemastered
             _date = startTime;
             _assignedNurses = new List<Nurse>();
         }
-
+        public DateTime Date { get { return _date; }}
         public List<Nurse> AssignedNurses { get { return _assignedNurses; } }
 
         public bool FullShift
@@ -42,6 +42,17 @@ namespace MedScheduleRemastered
         public void RemoveNurse(Nurse n)
         {
             _assignedNurses.Remove(n);
+        }
+        public string PrintShift()
+        {
+            string ShiftString = ToString();
+            foreach (Nurse nurse in _assignedNurses)
+                ShiftString += " " + nurse.Name;
+            return ShiftString;
+        }
+        public override string ToString()
+        {
+            return base.ToString();
         }
     }
 }

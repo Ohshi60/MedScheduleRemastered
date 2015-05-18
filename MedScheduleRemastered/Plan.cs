@@ -172,17 +172,21 @@ namespace MedScheduleRemastered
         {
             foreach(Day day in _days)
             {
-                foreach(Shift shift in day.FullDay)
-                {
-                    Console.WriteLine(shift.ToString());
-                    foreach(Nurse nurse in shift.AssignedNurses)
-                    {
-                        Console.WriteLine(nurse.Name);
-                    }
-                }
+                Console.WriteLine(day.FullDay[0].Date.ToShortDateString());
+                string dayshift = day.FullDay[0].PrintShift();
+                string eveningshift = day.FullDay[1].PrintShift();
+                string nightshift = day.FullDay[2].PrintShift();
+                string wholeshift = String.Format("{0,-10}  |  {1,-10}  |  {2,-10}",dayshift,eveningshift,nightshift);
+                Console.WriteLine(wholeshift);
+                //foreach(Shift shift in day.FullDay)
+                //{
+                //    Console.WriteLine(shift.ToString());
+                //    foreach(Nurse nurse in shift.AssignedNurses)
+                //    {
+                //        Console.WriteLine(nurse.Name);
+                //    }
             }
-            PrintNurseWorkLoad();
-            Console.WriteLine(_fitnessScore.ToString() + " min: " + minNurseShiftDifference + " max: " + maxNurseShiftDifference);
+            Console.WriteLine(_fitnessScore.ToString());
         }
 
         public void PrintNurseWorkLoad()

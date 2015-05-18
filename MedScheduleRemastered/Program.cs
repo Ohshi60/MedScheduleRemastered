@@ -12,12 +12,9 @@ namespace MedScheduleRemastered
         {
             Plan p = new Plan(5);
             //p.Printplan();
-            Plan p2 = p.SuperPlan(100,30);
+            Plan p2 = p.SuperPlan(1000000,30);
             p2.Printplan();
             Console.ReadKey();
-
-
-            
 
         }
     }

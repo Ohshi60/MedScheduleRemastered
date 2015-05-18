@@ -12,5 +12,9 @@ namespace MedScheduleRemastered
         {
             _nursesPerShift = 2;
         }
+        public override string ToString()
+        {
+            return "Nightshift";
+        }
     }
 }
